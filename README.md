@@ -1,4 +1,4 @@
-# spotify
+# Music player similar to Spotify
 
 A new Flutter project.
 
