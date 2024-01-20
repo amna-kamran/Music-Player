@@ -11,6 +11,8 @@ class MusicPlayer extends StatefulWidget {
 
 class _MusicPlayerState extends State<MusicPlayer> {
   Color songColor = const Color(0xFF490F0A);
+  String songTitle = "ChipiChapa";
+  String artistName = "dubidubi";
   bool like = false;
   bool play = false;
   @override
@@ -24,25 +26,33 @@ class _MusicPlayerState extends State<MusicPlayer> {
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Column(
           children: [
+            Space.h10,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(
-                  Icons.expand_more_rounded,
-                  size: 40,
-                  color: Colors.white,
+                IconButton(
+                  icon: const Icon(
+                    Icons.expand_more_rounded,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {},
                 ),
                 Text(
                   "song title",
                   style: textTheme.titleMedium?.copyWith(color: Colors.grey),
                 ),
-                const Icon(
-                  Icons.close_rounded,
-                  size: 30,
-                  color: Colors.white,
+                IconButton(
+                  icon: const Icon(
+                    Icons.close_rounded,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {},
                 ),
               ],
             ),
+            Space.h40,
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -55,7 +65,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       color: Colors.black12,
                     ),
                   ),
-                  Space.h30,
+                  Space.h60,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -63,12 +73,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "ChipiChapa",
+                            songTitle,
                             style: textTheme.titleLarge
                                 ?.copyWith(color: Colors.grey),
                           ),
                           Text(
-                            "singer name",
+                            artistName,
                             style: textTheme.titleMedium
                                 ?.copyWith(color: Colors.grey),
                           ),
@@ -92,7 +102,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       )
                     ],
                   ),
-                  Space.h20,
+                  Space.h30,
                   ProgressBar(
                     progress: const Duration(milliseconds: 1000),
                     total: const Duration(milliseconds: 5000),
@@ -107,6 +117,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       print('User selected a new time: $duration');
                     },
                   ),
+                  Space.h10,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -122,7 +133,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         icon: const Icon(
                           Icons.skip_previous,
                           color: Colors.grey,
-                          size: 36,
+                          size: 50,
                         ),
                       ),
                       IconButton(
@@ -135,12 +146,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
                             ? const Icon(
                                 Icons.play_circle,
                                 color: Colors.grey,
-                                size: 68,
+                                size: 80,
                               )
                             : const Icon(
                                 Icons.pause_circle,
                                 color: Colors.grey,
-                                size: 68,
+                                size: 80,
                               ),
                       ),
                       IconButton(
@@ -148,7 +159,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         icon: const Icon(
                           Icons.skip_next,
                           color: Colors.grey,
-                          size: 36,
+                          size: 50,
                         ),
                       ),
                       IconButton(
